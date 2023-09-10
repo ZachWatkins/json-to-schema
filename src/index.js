@@ -33,7 +33,7 @@ export function getFile(arrayOfObjects, pluginOptions = {}) {
         'rows found, getting schema file contents for options:',
         pluginOptions
     )
-    return ''
+    return 'schema'
 }
 
 export default get
