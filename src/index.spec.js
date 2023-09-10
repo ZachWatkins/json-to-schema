@@ -1,4 +1,4 @@
-import { writeFileSync } from './index.js'
+import { get, getFile } from './index.js'
 
 const mockData = [
     {
@@ -28,8 +28,14 @@ const mockData = [
     },
 ]
 
-describe('writeFileSync', () => {
-    it('should write a schema file', () => {
-        expect(writeFileSync('test.json', mockData)).toBe(true)
+describe('get', () => {
+    it('should return an object', () => {
+        expect(typeof get(mockData)).toBe('object')
+    })
+})
+
+describe('getFileContents', () => {
+    it('should return a string', () => {
+        expect(typeof getFile(mockData)).toBe('string')
     })
 })
