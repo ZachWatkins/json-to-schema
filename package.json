@@ -1,0 +1,39 @@
+{
+  "name": "@zachwatins/json-to-schema",
+  "version": "1.0.0",
+  "description": "JavaScript module to create a schema from an array of (flat) objects.",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier -c \"**/*.js\"",
+    "lint:staged": "lint-staged",
+    "lint:fix": "prettier --write \"**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachwatkins/json-to-schema.git"
+  },
+  "keywords": [
+    "js",
+    "module",
+    "json",
+    "schema"
+  ],
+  "author": "Zachary K. Watkins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zachwatkins/json-to-schema/issues"
+  },
+  "homepage": "https://github.com/zachwatkins/json-to-schema#readme",
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ]
+  }
+}
