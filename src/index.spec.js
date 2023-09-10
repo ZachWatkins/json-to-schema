@@ -33,7 +33,7 @@ describe('get', () => {
             area: { type: 'number', required: true },
             latitude: { type: 'number', required: true },
             longitude: { type: 'number', required: true },
-            rating: { type: 'number', required: true, allowNull: true },
+            rating: { type: 'number', required: true, nullable: true },
         })
     })
 })
