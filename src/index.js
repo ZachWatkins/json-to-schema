@@ -17,6 +17,7 @@ export function get(arrayOfObjects, pluginOptions = {}) {
         'rows found, getting schema file contents for options:',
         pluginOptions
     )
+    return {}
 }
 
 /**
@@ -26,32 +27,13 @@ export function get(arrayOfObjects, pluginOptions = {}) {
  * @param {string} [pluginOptions.schema] - Name of a schema plugin used to interpret the array of objects and produce a schema.
  * @returns {string} Returns a string of schema file contents.
  */
-export function getFileContents(arrayOfObjects, pluginOptions = {}) {
+export function getFile(arrayOfObjects, pluginOptions = {}) {
     console.log(
         arrayOfObjects.length,
         'rows found, getting schema file contents for options:',
         pluginOptions
     )
     return ''
-}
-
-/**
- * Write a schema file inferred from an array of objects.
- * @param {string} filename - Path to write schema file to.
- * @param {object[]|[]} arrayOfObjects - Array of objects to evaluate.
- * @param {object} [pluginOptions={}] - Schema plugin options.
- * @param {string} [pluginOptions.schema] - Name of a schema plugin used to interpret the array of objects and produce a schema.
- * @returns {boolean} Returns true if the schema file was written successfully.
- */
-export function writeFileSync(filename, arrayOfObjects, pluginOptions = {}) {
-    console.log(
-        arrayOfObjects.length,
-        'rows found, writing schema file to ',
-        filename,
-        ' for options:',
-        pluginOptions
-    )
-    return true
 }
 
 export default get
