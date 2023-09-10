@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "JavaScript module to create a schema from an array of (flat) objects.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1",
