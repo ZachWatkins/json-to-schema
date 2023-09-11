@@ -25,12 +25,8 @@ export function get(arrayOfObjects, pluginOptions = {}) {
  * @returns {string} Returns a string of schema file contents.
  */
 export function getFile(arrayOfObjects, pluginOptions = {}) {
-    console.log(
-        arrayOfObjects.length,
-        'rows found, getting schema file contents for options:',
-        pluginOptions
-    )
-    return 'schema'
+    const schema = new Schema(arrayOfObjects, pluginOptions)
+    return schema.toFile()
 }
 
 export default get
