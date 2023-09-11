@@ -7,12 +7,15 @@ import SchemaPlugin from './schema-plugin'
 import FoundTypes from './found-types'
 
 export class Schema {
+    #plugin = null
+    #properties = []
     constructor(arrayOfObjects, pluginOptions) {
-        const plugin = new SchemaPlugin(pluginOptions)
-        const types = new FoundTypes(arrayOfObjects, plugin)
-        if ('function' === typeof plugin.propertySchema) {
+        this.#plugin = new SchemaPlugin(pluginOptions)
+        const types = new FoundTypes(arrayOfObjects, this.#plugin)
+        this.#properties.push(...Object.keys(types))
+        if ('function' === typeof this.#plugin.propertySchema) {
             for (const prop in types.byProperty) {
-                this[prop] = plugin.propertySchema(this[prop])
+                this[prop] = this.#plugin.propertySchema(this[prop])
             }
         } else {
             for (const prop in types.byProperty) {
@@ -29,6 +32,56 @@ export class Schema {
                     : { type: typeValue, required }
             }
         }
+    }
+    toFile() {
+        return `const schema {
+    id: {
+        type: 'number',
+        required: true,
+    },
+    city: {
+        type: 'string',
+        required: true
+    },
+    state: {
+        type: 'string',
+        required: true
+    },
+    year: {
+        type: 'number',
+        required: true
+    },
+    visited: {
+        type: 'boolean',
+        required: true
+    },
+    resided: {
+        type: 'boolean',
+        required: false
+    },
+    population: {
+        type: 'number',
+        required: true
+    },
+    area: {
+        type: 'number',
+        required: true
+    },
+    latitude: {
+        type: 'number',
+        required: true
+    },
+    longitude: {
+        type: 'number',
+        required: true
+    },
+    rating: {
+        type: 'number',
+        required: true,
+        nullable: true
+    }
+};
+`
     }
 }
 
