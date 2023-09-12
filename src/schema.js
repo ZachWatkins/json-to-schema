@@ -12,7 +12,7 @@ export class Schema {
     constructor(arrayOfObjects, pluginOptions) {
         this.#plugin = new SchemaPlugin(pluginOptions)
         const types = new FoundTypes(arrayOfObjects, this.#plugin)
-        this.#properties.push(...Object.keys(types))
+        this.#properties = [...types.properties]
         if ('function' === typeof this.#plugin.propertySchema) {
             for (const prop in types.byProperty) {
                 this[prop] = this.#plugin.propertySchema(this[prop])
