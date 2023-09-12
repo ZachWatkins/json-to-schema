@@ -37,7 +37,18 @@ export class Schema {
         if (this.#plugin.getFileContents) {
             return this.#plugin.getFileContents(this)
         }
-        return 'const schema = ' + JSON.stringify(this, null, 4) + ';\n'
+        let output = 'export const schema = {\n'
+        for (let i = 0; i < this.#properties.length; i++) {
+            const prop = this.#properties[i]
+            output += `    "${prop}": ${JSON.stringify(this[prop], null, 4)}`
+            if (i < this.#properties.length - 1) {
+                output += ','
+            }
+            output += '\n'
+        }
+        output += '};\n\n'
+        output += 'export default { schema }\n'
+        return output
     }
 }
 
