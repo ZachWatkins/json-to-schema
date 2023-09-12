@@ -34,54 +34,10 @@ export class Schema {
         }
     }
     toFile() {
-        return `const schema {
-    id: {
-        type: 'number',
-        required: true,
-    },
-    city: {
-        type: 'string',
-        required: true
-    },
-    state: {
-        type: 'string',
-        required: true
-    },
-    year: {
-        type: 'number',
-        required: true
-    },
-    visited: {
-        type: 'boolean',
-        required: true
-    },
-    resided: {
-        type: 'boolean',
-        required: false
-    },
-    population: {
-        type: 'number',
-        required: true
-    },
-    area: {
-        type: 'number',
-        required: true
-    },
-    latitude: {
-        type: 'number',
-        required: true
-    },
-    longitude: {
-        type: 'number',
-        required: true
-    },
-    rating: {
-        type: 'number',
-        required: true,
-        nullable: true
-    }
-};
-`
+        if (this.#plugin.getFileContents) {
+            return this.#plugin.getFileContents(this)
+        }
+        return 'const schema = ' + JSON.stringify(this, null, 4) + ';\n'
     }
 }
 

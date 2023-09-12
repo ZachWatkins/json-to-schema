@@ -81,51 +81,51 @@ function mockData() {
 }
 
 function mockFile() {
-    return `const schema {
-    id: {
-        type: 'number',
-        required: true,
+    return `const schema = {
+    "id": {
+        "type": "number",
+        "required": true
     },
-    city: {
-        type: 'string',
-        required: true
+    "city": {
+        "type": "string",
+        "required": true
     },
-    state: {
-        type: 'string',
-        required: true
+    "state": {
+        "type": "string",
+        "required": true
     },
-    year: {
-        type: 'number',
-        required: true
+    "year": {
+        "type": "number",
+        "required": true
     },
-    visited: {
-        type: 'boolean',
-        required: true
+    "visited": {
+        "type": "boolean",
+        "required": true
     },
-    resided: {
-        type: 'boolean',
-        required: false
+    "resided": {
+        "type": "boolean",
+        "required": false
     },
-    population: {
-        type: 'number',
-        required: true
+    "population": {
+        "type": "number",
+        "required": true
     },
-    area: {
-        type: 'number',
-        required: true
+    "area": {
+        "type": "number",
+        "required": true
     },
-    latitude: {
-        type: 'number',
-        required: true
+    "latitude": {
+        "type": "number",
+        "required": true
     },
-    longitude: {
-        type: 'number',
-        required: true
+    "longitude": {
+        "type": "number",
+        "required": true
     },
-    rating: {
-        type: 'number',
-        required: true,
-        nullable: true
+    "rating": {
+        "type": "number",
+        "required": true,
+        "nullable": true
     }
 };
 `
