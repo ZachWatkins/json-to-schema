@@ -40,7 +40,7 @@ describe('get', () => {
     })
 })
 
-describe('getFileContents', () => {
+describe('toFile', () => {
     it('should return a string', () => {
         const schemaFile = getFile(mockData)
         expect(typeof schemaFile).toBe('string')
