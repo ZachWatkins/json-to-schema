@@ -40,7 +40,17 @@ export class Schema {
         let output = 'export const schema = {\n'
         for (let i = 0; i < this.#properties.length; i++) {
             const prop = this.#properties[i]
-            output += `    "${prop}": ${JSON.stringify(this[prop], null, 4)}`
+            let propKey = prop.indexOf(' ') !== -1 ? `"${prop}"` : prop
+            let propValue = JSON.stringify(this[prop], null, 8)
+            // Indent the last closing bracket.
+            propValue =
+                propValue.substring(0, propValue.lastIndexOf('}')) + '    }'
+            // Remove quotes from property keys in the propValue string.
+            propValue = propValue.replace(
+                /(\s{8})"([^"]+)":(\s{1})/g,
+                '$1$2:$3'
+            )
+            output += `    ${propKey}: ${propValue}`
             if (i < this.#properties.length - 1) {
                 output += ','
             }
